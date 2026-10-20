@@ -179,7 +179,8 @@
     swish(T.trio[0], 'container', 0.7, 0.3); pop(T.line, 0.42); pop(T.cta, 0.45); pop(T.cta + 0.35, 0.36);
     return out.sort((a, b) => a.t - b.t);
   }
-  const music = { bpm: 120, duration: DURATION, root: 50, chords: [[0, 4, 7], [9, 12, 16], [5, 9, 12], [7, 11, 14]],
+  const music = { style: 'organic', // the played sound (plucked strings, marimba, shaker) for a plants or botanicals brand
+    bpm: 120, duration: DURATION, root: 50, chords: [[0, 4, 7], [9, 12, 16], [5, 9, 12], [7, 11, 14]],
     sections: [{ from: 0, to: 1, pad: 0.7, hats: 0.3 }, { from: 1, to: 6, kick: 0.6, hats: 0.5, bass: 0.55, pad: 0.55 }, { from: 6, to: 8, pad: 0.7, hats: 0.35, bass: 0.4 }] };
   const STATES = [[0, PRODUCTS[0].a], [S0 + STEP, PRODUCTS[1].a], [S0 + 2 * STEP, PRODUCTS[2].a], [T.trio[0], 'Together'], [T.cta, 'Call to action']];
   window.template = { fps: FPS, duration: DURATION, sizes: { '9:16': [1080, 1920] }, width: W, height: H, defaults: () => ({ size: '9:16', ...DEFAULTS }), fields: FIELDS, states: STATES, prepare, seek: (t, values) => seek(t, values), cues, music,
