@@ -31,7 +31,7 @@ Read `style.md` before you start and `critique.md` before you judge.
 
 1. **Set up.**
    ```bash
-   mkdir -p illustrated-ad-film && cp -R "$SKILL_DIR/reference" illustrated-ad-film/reference && cp -R "$SKILL_DIR/reference" illustrated-ad-film/film && cp -R "$SKILL_DIR/scripts" illustrated-ad-film/scripts
+   mkdir -p illustrated-ad-film && cp -R "$SKILL_DIR/reference" illustrated-ad-film/reference && cp -R "$SKILL_DIR/reference" illustrated-ad-film/film && cp -R "$SKILL_DIR/scripts" illustrated-ad-film/scripts && cp -R "$SKILL_DIR/music" illustrated-ad-film/music
    rm -rf illustrated-ad-film/reference/out illustrated-ad-film/film/out
    cd illustrated-ad-film && npm init -y >/dev/null && npm i -D puppeteer-core
    ```
@@ -43,7 +43,7 @@ Read `style.md` before you start and `critique.md` before you judge.
 7. **Check:** `node scripts/compare.mjs reference film out/compare-9x16.png --size 9:16`, `node scripts/render.mjs film --size 9:16 --stress` and `--phone`. Fix anything that fails `critique.md`.
 8. **Check the motion** on strips of consecutive frames from the MP4: each draw-on (it must read as drawing, from the stem out, not a wipe), each product's rise, each push, the end. Then get a fresh judgement from a sub-agent with only `critique.md` and the images, if you can start one.
 9. **Check it's repeatable:** `node scripts/render.mjs film --size 9:16 --check`.
-10. **Render:** `node scripts/render.mjs film --size 9:16 --video --blur 4 --music --sound --poster 3.4`.
+10. **Render:** `node scripts/render.mjs film --size 9:16 --video --blur 4 --audio music/song.mp3 --sound --poster 3.4`. The soundtrack is the skill's own song (`music/song.mp3`: charming, playful synth-pop at 120 BPM), fitted to the film: it starts on a bar line and, near the end, lands one hit, where its drums stop and the rest closes and fades (from its stems in `music/song-stems/`). `--from <seconds>` starts at another of its distinct 8-bar sections (the song is about two minutes long). `--music` gives the synthesised score instead; the user's own song works with `--audio their.wav`.
 11. **Write `illustrated-ad-film/README.md`** and `out/CAPTION.md` (under 280 characters, the product's words and address).
 12. **Report:** the MP4, the poster, the caption, the story and state list, the scores, and the one change that would improve it most.
 
@@ -59,6 +59,7 @@ Read `style.md` before you start and `critique.md` before you judge.
 ## Files
 
 - `reference/`: the Fennick ad (`index.html`), its art (`assets/art/`: the engravings as ink on transparent, the can renders, the wordmark, and the engravings' brief), fonts (Bricolage Grotesque and DM Sans, SIL Open Font License), `kit.js`. Fennick is a fictional company made for omnigami's examples.
+- `music/`: the skill's song and its stems.
 - `scripts/`, `style.md`, `critique.md`.
 
 This skill's motion is omnigami's own; it isn't a study of another film.
