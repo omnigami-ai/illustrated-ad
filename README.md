@@ -2,7 +2,7 @@
 
 Your ingredients, drawn as we watch.
 
-A 16-second ad for a physical product range. Each product’s ingredients draw themselves stroke by stroke in your packaging’s own illustration style, and the real product rises in front of them, one page after another, ending on all of them together with your line and call to action.
+An ad for a physical product range. Each product’s ingredients draw themselves stroke by stroke in your packaging’s own illustration style, and the real product rises in front of them, one page after another, ending on all of them together with your line and call to action.
 
 Watch it play live, and change its words, at [omnigami.ai/skills/illustrated-ad](https://omnigami.ai/skills/illustrated-ad).
 

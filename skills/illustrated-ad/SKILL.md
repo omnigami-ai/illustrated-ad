@@ -5,6 +5,8 @@ description: Make a 16-second illustrated ad for a physical product - its botani
 
 # Illustrated ad
 
+For Japanese, Korean or Chinese product pages, keep the copy in that language and set the film’s `lang` to the page’s `<html lang>`; bundled Noto faces and phrase breaks handle the text.
+
 You make a 16-second ad for a physical product range in the hand of its own
 packaging's illustrations. For each product: its ingredients draw
 themselves in engraved ink on warm paper (outlines first, from the stem out,

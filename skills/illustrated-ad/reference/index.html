@@ -20,8 +20,8 @@
   const { clamp, lerp, spring, rng, loadFont, loadImage, measure, easeOutExpo, easeInOutCubic } = window.kit;
   const FPS = 60, DURATION = 16, W = 1080, H = 1920;
   const canvas = document.getElementById('c');
-  const g = canvas.getContext('2d', { willReadFrequently: true });
-  const helper = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return [c, c.getContext('2d', { willReadFrequently: true })]; };
+  const g = kit.textContext(canvas.getContext('2d', { willReadFrequently: true }));
+  const helper = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return [c, kit.textContext(c.getContext('2d', { willReadFrequently: true }))]; };
 
   // ---------- Fennick: colour and type (cast/fennick/brand.md) ----------
   const PAPER = '#F1EBE0', INK = '#1D1A16', MUTED = '#6E665C';
@@ -80,7 +80,7 @@
   }
 
   // ---------- type ----------
-  function text(c, s, x, y, font, colour, align = 'left', base = 'middle') {
+  function text(c, s, x, y, font, colour, align = 'left', base = 'middle') { s = kit.copyText(s);
     c.font = font; c.fillStyle = colour; c.textAlign = align;
     if (base === 'middle') window.kit.centreText(c, s, x, y); else { c.textBaseline = base; c.fillText(s, x, y); }
   }
@@ -183,9 +183,9 @@
     bpm: 120, duration: DURATION, root: 50, chords: [[0, 4, 7], [9, 12, 16], [5, 9, 12], [7, 11, 14]],
     sections: [{ from: 0, to: 1, pad: 0.7, hats: 0.3 }, { from: 1, to: 6, kick: 0.6, hats: 0.5, bass: 0.55, pad: 0.55 }, { from: 6, to: 8, pad: 0.7, hats: 0.35, bass: 0.4 }] };
   const STATES = [[0, PRODUCTS[0].a], [S0 + STEP, PRODUCTS[1].a], [S0 + 2 * STEP, PRODUCTS[2].a], [T.trio[0], 'Together'], [T.cta, 'Call to action']];
-  window.template = { fps: FPS, duration: DURATION, sizes: { '9:16': [1080, 1920] }, width: W, height: H, defaults: () => ({ size: '9:16', ...DEFAULTS }), fields: FIELDS, states: STATES, prepare, seek: (t, values) => seek(t, values), cues, music,
-    keyTimes: [0.8, 1.6, 2.4, 3.2, 4.1, 5.0, 6.5, 7.6, 8.1, 9.2, 10.8, 11.8, 12.5, 13.2, 14.0, 15.5] };
+  window.template = kit.film({ fps: FPS, duration: DURATION, sizes: { '9:16': [1080, 1920] }, width: W, height: H, defaults: () => ({ size: '9:16', ...DEFAULTS }), fields: FIELDS, states: STATES, prepare, seek: (t, values) => seek(t, values), cues, music,
+    keyTimes: [0.8, 1.6, 2.4, 3.2, 4.1, 5.0, 6.5, 7.6, 8.1, 9.2, 10.8, 11.8, 12.5, 13.2, 14.0, 15.5] });
   const q = new URLSearchParams(location.search);
-  if (window.parent === window && !q.has('render')) prepare().then(() => { const t0 = performance.now(); const loop = () => { seek(((performance.now() - t0) / 1000) % DURATION, {}); requestAnimationFrame(loop); }; loop(); });
+  if (window.parent === window && !q.has('render')) window.template.prepare().then(() => { const t0 = performance.now(); const loop = () => { seek(((performance.now() - t0) / 1000) % DURATION, {}); requestAnimationFrame(loop); }; loop(); });
 })();
 </script>
