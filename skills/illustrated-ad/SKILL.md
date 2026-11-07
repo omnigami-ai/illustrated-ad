@@ -1,6 +1,10 @@
 ---
 name: illustrated-ad
-description: Make a 16-second illustrated ad for a physical product - its botanicals or ingredients drawn in engraved ink that draws itself stroke by stroke on warm paper, the real product (a photorealistic render) rising in front of each, a page push to the next, then every product together with a drawn fizz, the line and the call to action. Renders a tall (9:16) MP4 with sound. Use when the user asks for an illustrated ad, product ad, packaging film, drawn or engraved animation for a drink, food, cosmetic or other physical product range.
+description: >-
+  Illustrated ad for a physical product: its ingredients drawn in engraved ink, stroke by stroke, the photoreal
+  product rising in front of each, then the whole range and the call to action. 16 seconds, tall, with sound. Use when
+  the user asks for an illustrated ad, product ad, packaging film or drawn animation for a drink, food, cosmetic or
+  other product range.
 ---
 
 # Illustrated ad
